@@ -22,7 +22,7 @@ html(lang="ja")
             li
               a.dropdown-item(href="/logout") ログアウト
     each post in posts
-      - let cardClass = (user === post.postedBy ? 'card my-3 border-primary' : 'card my-3')
+      - const cardClass = (user === post.postedBy ? 'card my-3 border-primary' : 'card my-3')
       div(class=cardClass)
         div.card-body
           div.d-flex.justify-content-between
@@ -31,7 +31,7 @@ html(lang="ja")
                 i.bi-patch-check-fill.ms-1
             small.card-text.text-muted.float-end #{post.createdAt}
           p.card-text.lead!= post.content
-        - let isDeletable = (user === post.postedBy || user === 'admin')
+        - const isDeletable = (user === post.postedBy || user === 'admin')
         if isDeletable
           div.card-footer.d-flex.justify-content-end
             form(method="post" action="/posts/delete")
